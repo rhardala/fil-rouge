@@ -1,0 +1,45 @@
+pipeline {
+  agent any
+
+
+  environment {
+       ID_DOCKER = "filrougegroupe2"
+       IMAGE_NAME = "twitter-static-website"
+       IMAGE_TAG = "v4"  
+       */ DOCKERHUB_PASSWORD = credentials('dockerhubpassword') */
+     }
+
+
+
+  stages{
+
+  stage('Test connexion') {
+           agent any
+           steps {
+              script {
+               echo "helloworld"
+              }
+           }
+      }
+  }
+
+
+
+
+ stage('Build image') {
+           agent any
+           steps {
+              script {
+               sh 'docker build -t ${ID_DOCKER}/$IMAGE_NAME:$IMAGE_TAG .'
+              }
+           }
+      }
+  }
+
+
+  post {
+    always {
+      discordSend description: 'Jenkins Pipeline Build', webhookURL: 'https://discord.com/api/webhooks/971457836276121670/Z-aLx7cJULq_p9nwlXhqOldM_fiecpxgmuvNdubxHxqha-uvkFhlXO3XW_mytk_GmYmj'
+    }
+  }
+}
