@@ -5,7 +5,7 @@ pipeline {
   environment {
        
        IMAGE_NAME = "twitter-static-website"
-       IMAGE_TAG = "v5"  
+       IMAGE_TAG = "v1"  
       
      }
 
