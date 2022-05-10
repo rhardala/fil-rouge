@@ -202,5 +202,5 @@ Au lancement de la pipeline , notre application est intégrée , puis déployée
 
 Bravo! Vous avez bien réalisé la pipeline ! il ne reste qu'à récupérer vos billets verts! 
 
-![Alt Text](https://giphy.com/embed/67ThRZlYBvibtdF9JH)
+![Alt Text](https://media.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif)
 
