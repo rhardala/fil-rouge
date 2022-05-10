@@ -126,6 +126,7 @@ pipeline {
       steps {
           script {
             sh '''
+              cd $WORKSPACE/
               heroku container:login
               heroku create $STAGING || echo "project already exist"
               heroku container:push -a $STAGING web
