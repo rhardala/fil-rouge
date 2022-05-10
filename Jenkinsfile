@@ -126,11 +126,11 @@ pipeline {
       steps {
           script {
             sh '''
-              heroku login
-              heroku container:login
-              heroku create $STAGING || echo "project already exist"
-              heroku container:push -a $STAGING web
-              heroku container:release -a $STAGING web
+              
+              /var/lib/snapd/snap/bin/heroku container:login
+              /var/lib/snapd/snap/bin/heroku create $STAGING || echo "project already exist"
+              /var/lib/snapd/snap/bin/heroku container:push -a $STAGING web
+              /var/lib/snapd/snap/bin/heroku container:release -a $STAGING web
             '''
           }
         }
