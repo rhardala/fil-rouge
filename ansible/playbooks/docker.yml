@@ -53,5 +53,16 @@
         owner: root
         group: root
         mode: '0644'
+        
+      - name: Stop Docker daemon
+        service: 
+        name: docker 
+        state: stoped 
+      - name: Restart Docker daemon
+        service: 
+        name: docker 
+        state: started 
+        enabled: yes
+        
 
 ...
