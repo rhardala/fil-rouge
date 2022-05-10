@@ -107,7 +107,7 @@ pipeline {
            steps {
                script {
                  sh '''
-                    cd $WORKSPACE/ansible && ansible-playbook playbooks/deploy_app.yml  --private-key ../id_rsa                 
+                    cd $WORKSPACE/ansible && ansible-playbook playbooks/deploy_app.yml  --private-key ../id_rsa -e env=staging                
                  '''
                }
            }
