@@ -6,7 +6,7 @@ pipeline {
        
        IMAGE_NAME = "twitter-static-website"
        IMAGE_TAG = "v5"
-       STAGING = "abderrezak-staging"
+       STAGING = "abderrezak-prod"
       
      }
 
@@ -115,9 +115,9 @@ pipeline {
      }
     
     
-    stage('Push image in staging and deploy it') {
+    stage('Push image in prod and deploy it') {
        when {
-              expression { GIT_BRANCH == 'origin/master' }
+              expression { GIT_BRANCH == 'origin/main' }
             }
       agent any
       environment {
