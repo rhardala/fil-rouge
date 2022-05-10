@@ -137,6 +137,44 @@ Pour crée la pipeline , on va dans nouveau Item >Pipeline , on nomme notre pipe
 
 # Mise en place de la Pipeline CD
 
+Dans cette partie , nous allons mettre en place la chaine CD. Il s'agit de : 
+
+- Récupérer l'image docker depuis le registy local. 
+- La pusher sur la Vm de staging.
+- La pusher sur Heroku pour la prod.
+
+Mais avant ça , nous devons d'abord préparer les environnement.
+
+### Préparation de la Vm de staging
+
+A l'aide '**Ansible** on se connecte sur le **worker1** via le **SSH**. Dans la machine jenkins , on récupère la clé dejà générée. elle est dans **/var/lib/jenkins/.ssh** , on la copie sur notre machine windows on la nomme id_rsa. 
+
+Dans Administrations Jenkins > Manage Credentials >global > Ajouter des identifiant > secret file > on upload notre id_rsa. 
+
+![sshworkers](/Images/sshworkers.PNG "sshworkers")
+
+Une fois la connexion ssh est établie , on lance les playebook. Ces derniers permettent de: 
+
+- Installer docker sur les workers
+- Configurer l'acees ensecure vers le registry , afin de récuperer les images docker.
+- Pusher l'image docker dans l'environnement de staging.
+- Crée un conteneur depuis notre image docker. 
+
+La pipeline CI/CD réalise ce qui suit.
+
+![piplineCDCDstaging](/Images/piplineCDCDstaging.PNG "piplineCDCDstaging")
+
+- On consomme notre application installée dans le staging , on tape sur notre navigateur.
+
+```
+    http://192.168.99.11/80
+```
+
+  
+
+
+
+
 
 ### Configuration d'Heroku
 
@@ -148,4 +186,7 @@ Pour crée la pipeline , on va dans nouveau Item >Pipeline , on nomme notre pipe
 
 ![heroku_credential](/Images/heroku_credential.PNG "heroku_credential")
 
+### Installation de Heroku CLI 
 
+- On installe Git 
+- 
