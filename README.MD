@@ -158,7 +158,7 @@ Une fois la connexion ssh est établie , on lance les playebook. Ces derniers pe
 - Installer docker sur les workers
 - Configurer l'acees ensecure vers le registry , afin de récuperer les images docker.
 - Pusher l'image docker dans l'environnement de staging.
-- Crée un conteneur depuis notre image docker. 
+- Crée un conteneur depuis notre image docker et déployer l'application. 
 
 La pipeline CI/CD réalise ce qui suit.
 
@@ -170,14 +170,17 @@ La pipeline CI/CD réalise ce qui suit.
     http://192.168.99.11/80
 ```
 
-  
+### Installation du binairer Heroku 
 
+Avant de pouvoir utilisé Heroku et pusher nos image , on doit d'abord installer Heroku CLI sur notre machine Jenkins.
 
-
-
-
-### Configuration d'Heroku
-
+```
+    sudo yum -y install epel-release
+    sudo yum -y install snapd
+    sudo systemctl enable --now snapd.socket
+    sudo ln -s /var/lib/snapd/snap /snap
+    sudo snap install heroku --classic
+```
 
 ### Création des credentials pour heroku
 
@@ -186,7 +189,18 @@ La pipeline CI/CD réalise ce qui suit.
 
 ![heroku_credential](/Images/heroku_credential.PNG "heroku_credential")
 
-### Installation de Heroku CLI 
+# Lancement de la Pipeline CI/CD 
 
-- On installe Git 
-- 
+Une fois les environnement sont deployés, il ne reste qu'à lancer la pipeline dejuis jenkins.
+
+![CICD](/Images/CICD.PNG "CICD")
+
+Au lancement de la pipeline , notre application est intégrée , puis déployée dans les deux environnement de devloppement; le Staging dans la VM et le PROD dans le cloud Heroku. 
+
+![deploimentheroku](/Images/deploimentheroku.PNG "deploimentheroku")
+
+
+Bravo! Vous avez bien réalisé la pipeline ! il ne reste qu'à récupérer vos billets verts! 
+
+![Alt Text](https://giphy.com/embed/67ThRZlYBvibtdF9JH)
+
