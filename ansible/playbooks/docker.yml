@@ -57,9 +57,9 @@
     
     - name: Restart Docker daemon
       service: 
-      name: docker 
-      state: restarted 
-      enabled: yes
+        name: docker 
+        state: restarted 
+        enabled: yes
         
 
 ...
