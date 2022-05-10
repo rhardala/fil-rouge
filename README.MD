@@ -132,3 +132,20 @@ Pour crée la pipeline , on va dans nouveau Item >Pipeline , on nomme notre pipe
 - Sur l'IHM de notre registry , on voit que l'image a été bien pushé.
 
 ![plocal_registryCI](/Images/local_registryCI.PNG "local_registryCI")
+
+- Une notification a été bien envoyée sur Discord. 
+
+# Mise en place de la Pipeline CD
+
+
+### Configuration d'Heroku
+
+
+### Création des credentials pour heroku
+
+- Dans Administration de Jenkins > Manage Credentials > Global > Ajouter des identifiants > on ajoute un secret Text. 
+- Dans Heroku > Account Setings > on déroule en bas API Key  Revel : on génère le **secret text** et on l'ajoute dans le credential Jenkins. 
+
+![heroku_credential](/Images/heroku_credential.PNG "heroku_credential")
+
+
