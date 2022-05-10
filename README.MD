@@ -201,6 +201,5 @@ Au lancement de la pipeline , notre application est intégrée , puis déployée
 
 
 Bravo! Vous avez bien réalisé la pipeline ! il ne reste qu'à récupérer qu'à passer au chiffrage de votre projet! 
-
-                                   ![Alt Text](https://media.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif)
+![Alt Text](https://media.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif)
 
