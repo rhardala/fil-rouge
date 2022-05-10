@@ -1,6 +1,6 @@
 ---
 - name: Install docker on a Centos 7 machine
-  hosts: "{{ env }}"
+  hosts: "worker1"
   become: yes
   
   pre_tasks:
@@ -46,5 +46,12 @@
         name: "{{ ansible_user }}"
         groups: dockerroot
         append: yes
+    - name: "Configure insecure Registry"
+      ansible.builtin.copy:
+        src: "../files/daemon.json"
+        dest: "/etc/docker/daemon.json"
+        owner: root
+        group: root
+        mode: '0644'
 
 ...
