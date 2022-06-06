@@ -6,7 +6,7 @@ pipeline {
        
        IMAGE_NAME = "twitter-static-website"
        IMAGE_TAG = "v5"
-       STAGING = "twitter-prod"
+       STAGING = "harone-prod"
       
      }
 
